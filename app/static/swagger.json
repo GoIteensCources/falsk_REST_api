@@ -1,0 +1,71 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Quotes API",
+      "version": "1.0.0"
+    },
+
+    "paths": {
+       "/api/quotes": {
+         "get": {
+               "description": "Returns all quotes",
+               "produces": [
+                 "application/json"
+               ],
+               "responses": {
+                 "200": {
+                   "description": "Successful operation"
+                 }
+               }
+         },
+            "post": {
+                   "description": "Create quotes",
+                   "produces": [
+                     "application/json"
+                   ],
+                   "parameters": [
+                     {
+                       "in": "body",
+                       "name": "body",
+                       "description": "Add quote to bd",
+                       "required": true,
+                       "schema": {
+                         "$ref": "#/definitions/Quote"
+                       }
+                     }
+                   ],
+                   "responses": {
+                     "201": {
+                       "description": "Successful operation"
+                     }
+                   }
+                 }
+   },
+
+
+ "/api/quotes/{id}": {
+     "get": {
+       "description": "Returns quotes with id",
+       "produces": [
+         "application/json"
+       ],
+
+       "parameters": [
+           {
+           "name": "id",
+           "in": "path",
+           "description": "ID of quote to return",
+           "required": true,
+           "type": "integer"
+           }
+           ],
+
+       "responses": {
+         "200": {
+           "description": "Successful operation"
+         }
+       }
+     }
+   }
+  }
+}
